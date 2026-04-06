@@ -13,7 +13,7 @@ Table *init_table(){
     return table;
 }
 
-Table_Status table_insert(Table *table, const char *key, InfoType value){
+TableStatus table_insert(Table *table, const char *key, InfoType value){
     if (!table) return TABLE_ERR_MEMORY;
 
     KeySpace *curr = table->head;
@@ -50,7 +50,7 @@ Table_Status table_insert(Table *table, const char *key, InfoType value){
     return TABLE_OK;
 }
 
-Table_Status table_remove(Table *table, const char *key){
+TableStatus table_remove(Table *table, const char *key){
     if (!table) return TABLE_ERR_MEMORY;
 
     KeySpace *curr = table->head;
@@ -147,7 +147,7 @@ TableStatus table_search_range(const Table *table, const char *key1, const char 
     return TABLE_OK;
 }
 
-Status table_import(Table *table, const char *filename){
+TablStatus table_import(Table *table, const char *filename){
     if (!table) return TABLE_ERR_MEMORY;
 
     FILE *file = fopen(filename, "r");
